@@ -7,8 +7,8 @@ sizeSelector.addEventListener("change" , (event) => {
     const selectedPrice = event.target.value;
     priceElement.textContent = `$${selectedPrice}`;
 // Task 3 Handle Stock Availability
-
-if ("data-stock" === "out-of-stock") {
+let stockStatus = "data-stock"
+if (stockStatus === "out-of-stock") {
     purchaseButton.disabled = true;
 } else {
     purchaseButton.disabled = false;
@@ -16,4 +16,12 @@ if ("data-stock" === "out-of-stock") {
 });
 
 // Task 4 Create a Checkout Event
+let stockStatus = "data-stock"
+purchaseButton.addEventListener("click", function() {
+    if ( stockStatus === "in-stock") {
+        alert("Thank you for your purchase!");
+    } else {
+        alert("Sorry, this product is out of stock.");
+    }
 
+});
